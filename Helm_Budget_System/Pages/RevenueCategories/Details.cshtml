@@ -1,0 +1,31 @@
+﻿@page
+@model Helm_Budget_System.Pages.RevenueCategorys.DetailsModel
+
+@{
+    ViewData["Title"] = "Revenue Category Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Revenue Category Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RevenueCategory.RevenueCategoryName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RevenueCategory.RevenueCategoryName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RevenueCategory.School.SchoolName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RevenueCategory.School.SchoolName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.RevenueCategory.ID"><i class="fa-solid fa-edit"></i>&nbsp;Edit</a> |
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>

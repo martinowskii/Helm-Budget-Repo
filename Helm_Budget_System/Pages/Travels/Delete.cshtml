@@ -1,0 +1,76 @@
+﻿@page
+@model Helm_Budget_System.Pages.Travels.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete Travel Entry</h2>
+
+<h5>Are you sure you want to delete this Travel entry?</h5>
+
+<p class="text-danger hiddenText">@Model.ErrorMessage</p>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.TravelCategoryID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.TravelCategory.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.YearID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.Year.YearEntry)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.BudgetSectorID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.BudgetSector.BudgetSectorName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.TravelStartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.TravelStartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.TravelEndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.TravelEndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.InState)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.InState)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.IsConference)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.IsConference)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.EventDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.EventDescription)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="TravelEntry.ID" />
+        <div class="col-sm-12 text-right">
+            <div class="form-group text-right col-sm-6">
+                <input type="submit" value="Delete" class="btn btn-danger createBtn" />
+            </div>
+        </div>
+        <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+    </form>
+</div>

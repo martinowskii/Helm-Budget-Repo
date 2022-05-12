@@ -1,0 +1,25 @@
+﻿@page
+@model Helm_Budget_System.Pages.Years.DetailsModel
+
+@{
+    ViewData["Title"] = "Year Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Year Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Year.YearEntry)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Year.YearEntry)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Year.ID"><i class="fa-solid fa-edit"></i>&nbsp;Edit</a> |
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>

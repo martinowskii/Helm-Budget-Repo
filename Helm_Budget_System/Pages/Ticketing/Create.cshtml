@@ -1,0 +1,52 @@
+﻿@page
+@model Helm_Budget_System.Pages.Ticketing.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Ticket</h1>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ticket.SchoolID" class="control-label"></label>
+                <input asp-for="Ticket.SchoolID" class="form-control" />
+                <span asp-validation-for="Ticket.SchoolID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.TicketType" class="control-label"></label>
+                <input asp-for="Ticket.TicketType" class="form-control" />
+                <span asp-validation-for="Ticket.TicketType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.PriceType" class="control-label"></label>
+                <input asp-for="Ticket.PriceType" class="form-control" />
+                <span asp-validation-for="Ticket.PriceType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.TicketPrice" class="control-label"></label>
+                <input asp-for="Ticket.TicketPrice" class="form-control" />
+                <span asp-validation-for="Ticket.TicketPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.TicketName" class="control-label"></label>
+                <input asp-for="Ticket.TicketName" class="form-control" />
+                <span asp-validation-for="Ticket.TicketName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary createBtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

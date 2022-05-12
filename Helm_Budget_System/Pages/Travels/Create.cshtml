@@ -1,0 +1,71 @@
+﻿@page
+@model Helm_Budget_System.Pages.Travels.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Create Travel Entry</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TravelEntry.TravelCategoryID" class="control-label"></label>
+                <select asp-for="TravelEntry.TravelCategoryID" class ="form-control" asp-items="ViewBag.TravelCategoryID"></select>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="form-group">
+                <label asp-for="TravelEntry.YearID" class="control-label"></label>
+                <select asp-for="TravelEntry.YearID" class ="form-control" asp-items="ViewBag.YearID"></select>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TravelEntry.BudgetSectorID" class="control-label"></label>
+                <select asp-for="TravelEntry.BudgetSectorID" class ="form-control" asp-items="ViewBag.BudgetSectorID"></select>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TravelEntry.TravelStartDate" class="control-label"></label>
+                <input asp-for="TravelEntry.TravelStartDate" class="form-control" />
+                <span asp-validation-for="TravelEntry.TravelStartDate" class="text-danger"></span>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TravelEntry.TravelEndDate" class="control-label"></label>
+                <input asp-for="TravelEntry.TravelEndDate" class="form-control" />
+                <span asp-validation-for="TravelEntry.TravelEndDate" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="TravelEntry.InState" class="control-label"></label>
+                <input asp-for="TravelEntry.InState" class="form-check-input" type="checkbox" />
+                <span asp-validation-for="TravelEntry.InState" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="TravelEntry.IsConference" class="control-label"></label>
+                <input asp-for="TravelEntry.IsConference" class="form-check-input" type="checkbox" />
+                <span asp-validation-for="TravelEntry.IsConference" class="text-danger"></span>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TravelEntry.EventDescription" class="control-label"></label>
+                <input asp-for="TravelEntry.EventDescription" class="form-control" />
+                <span asp-validation-for="TravelEntry.EventDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group text-right">
+                <input type="submit" value="Create" class="btn btn-primary createBtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

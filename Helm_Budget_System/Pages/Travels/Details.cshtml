@@ -1,0 +1,67 @@
+﻿@page
+@model Helm_Budget_System.Pages.Travels.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Travel Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.BudgetSector.BudgetSectorName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.BudgetSector.BudgetSectorName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.Year.YearEntry)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.Year.YearEntry)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.TravelCategory.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.TravelCategory.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.TravelStartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.TravelStartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.TravelEndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.TravelEndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.InState)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.InState)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.IsConference)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.IsConference)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelEntry.EventDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelEntry.EventDescription)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TravelEntry.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

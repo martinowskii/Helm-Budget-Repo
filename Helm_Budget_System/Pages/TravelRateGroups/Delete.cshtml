@@ -1,0 +1,53 @@
+﻿@page
+@model Helm_Budget_System.Pages.TravelRateGroups.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete Travel Rate Group";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Travel Rate Group</h2>
+
+<h5>Are you sure you want to delete this Travel Rate Group?</h5>
+
+<p class="text-danger hiddenText">@Model.ErrorMessage</p>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelRateGroup.MealPerDiemRate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelRateGroup.MealPerDiemRate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelRateGroup.CoachTravelRate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelRateGroup.CoachTravelRate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelRateGroup.RecruitTravelRate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelRateGroup.RecruitTravelRate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TravelRateGroup.School.SchoolName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TravelRateGroup.School.SchoolName)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="TravelRateGroup.ID" />
+        <div class="col-sm-12 text-right">
+            <div class="form-group text-right col-sm-6">
+                <input type="submit" value="Delete" class="btn btn-danger createBtn" />
+            </div>
+        </div>
+        <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helm_Budget_System", "Helm_Budget_System\Helm_Budget_System.csproj", "{4BF5D81A-E8B7-43E4-B1F1-A661858346EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BF5D81A-E8B7-43E4-B1F1-A661858346EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BF5D81A-E8B7-43E4-B1F1-A661858346EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BF5D81A-E8B7-43E4-B1F1-A661858346EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BF5D81A-E8B7-43E4-B1F1-A661858346EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {047A08F1-CA64-4505-9421-4EEC37DA7716}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,34 @@
+﻿@page
+@model Helm_Budget_System.Pages.UserRoles.CreateModel
+
+@{
+    ViewData["Title"] = "Create User Role";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Create User Role</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserRole.Name" class="control-label"></label>
+                <input asp-for="UserRole.Name" class="form-control" />
+                <span asp-validation-for="UserRole.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group text-right">
+                <input type="submit" value="Create" class="btn btn-primary createBtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

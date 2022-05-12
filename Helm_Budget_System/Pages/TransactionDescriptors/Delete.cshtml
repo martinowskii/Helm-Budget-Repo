@@ -1,0 +1,41 @@
+﻿@page
+@model Helm_Budget_System.Pages.TransactionDescriptors.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete Transaction Descriptor";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Transaction Descriptor</h2>
+
+<h5>Are you sure you want to delete this Transaction Descriptor?</h5>
+
+<p class="text-danger hiddenText">@Model.ErrorMessage</p>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransactionDescriptor.TransactionDescriptorName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransactionDescriptor.TransactionDescriptorName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransactionDescriptor.School.SchoolName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransactionDescriptor.School.SchoolName)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="TransactionDescriptor.ID" />
+        <div class="col-sm-12 text-right">
+            <div class="form-group text-right col-sm-6">
+                <input type="submit" value="Delete" class="btn btn-danger createBtn" />
+            </div>
+        </div>
+        <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+    </form>
+</div>

@@ -1,0 +1,34 @@
+﻿@page
+@model Helm_Budget_System.Pages.DescriptorDescriptions.CreateModel
+
+@{
+    ViewData["Title"] = "Create Descriptor Description";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Create Descriptor Description</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DescriptorDescription.DescriptorDescriptionName" class="control-label"></label>
+                <input asp-for="DescriptorDescription.DescriptorDescriptionName" class="form-control" />
+                <span asp-validation-for="DescriptorDescription.DescriptorDescriptionName" class="text-danger"></span>
+            </div>
+            <div class="form-group text-right">
+                <input type="submit" value="Create" class="btn btn-primary createBtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

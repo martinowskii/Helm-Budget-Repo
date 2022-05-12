@@ -1,0 +1,106 @@
+﻿@page
+@model Helm_Budget_System.Pages.Ticketing.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2>Ticket Revenue</h2>
+    </div>
+    <div class="col-6 text-right">
+        <p class="createBtn">
+            <a asp-page="Create" data-toggle="tooltip" title="New Ticket Entry">
+                <span class="fa-solid fa-plus"></span> New Ticket Entry
+            </a>
+        </p>
+    </div>
+</div>
+
+<form sp-page="./Index" method="get">
+    <div class="form-actions searchBox row" data-toggle="tooltip" title="Input search criteria to filter the list.">
+        <div class="col-6">
+            Filter by Name:
+            <input type="text" name="SearchName" class="searchBoxInput" value="@Model.NameFilter" />
+        </div>
+       
+        <div class="col-6 text-right searchBtn" style="margin-top:4px;">
+            <input type="submit" value="Search" class="btn btn-primary navBtn" />&nbsp;|&nbsp;
+            <a asp-page="./Index" class="btn btn-secondary navBtn" data-toggle="tooltip" title="Reset search criteria.">X</a>
+        </div>
+    </div>
+</form>
+
+<table class="table" style="margin-top: 7px;">
+    <thead>
+        <tr class="tableHdr">  
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.IDSort"
+                   asp-route-nameFilter="@Model.NameFilter">
+                    @Html.DisplayNameFor(model => model.Tickets[0].ID)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                   asp-route-nameFilter="@Model.NameFilter">
+                    @Html.DisplayNameFor(model => model.Tickets[0].TicketName)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tickets) {
+        <tr class="tableBody">
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketName)
+            </td>
+            <td class="btnGroup text-right">
+                <a asp-page="./Edit" asp-route-id="@item.ID" class="fa-solid fa-edit text-left"
+                   data-toggle="tooltip" title="Edit Revenue Entry"></a>|
+                <a asp-page="./Details" asp-route-id="@item.ID" class="fa-solid fa-magnifying-glass text-left"
+                   data-toggle="tooltip" title="View Revenue Details"></a>|
+                <a asp-page="./Delete" asp-route-id="@item.ID" class="fa-solid fa-multiply text-left"
+                   data-toggle="tooltip" title="Delete Revenue Entry"></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+@{
+    var prevDisabled = !Model.Tickets.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Tickets.HasNextPage ? "disabled" : "";
+}
+
+<div class="form-actions no-color helmFooter row">
+    <div class="col-6 footerDiv text-right" data-toggle="tooltip" title="">
+        <table class="table-condensed footerTable">
+            <tr class="text-right">
+                <th class="ftrTableCol">Total Entries:</th>
+                <td class="text-left">@String.Format("{0:N0}", @Model.entryCount)</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-6 footerDiv ftrNavBtnSet text-right" data-toggle="tooltip" title="Select Previous or Next to see more entries.">
+        <a asp-page="./Index"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-pageIndex="@(Model.Tickets.PageIndex - 1)"
+            asp-route-nameFilter="@Model.NameFilter"
+            class="btn btn-primary navBtn @prevDisabled">
+            Previous
+        </a>
+        <a asp-page="./Index"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-pageIndex="@(Model.Tickets.PageIndex + 1)"
+            asp-route-nameFilter="@Model.NameFilter"
+            class="btn btn-primary navBtn @nextDisabled">
+            Next
+        </a>
+    </div>
+</div>

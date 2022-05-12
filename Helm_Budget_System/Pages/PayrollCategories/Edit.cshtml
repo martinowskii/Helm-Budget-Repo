@@ -1,0 +1,42 @@
+﻿@page
+@model Helm_Budget_System.Pages.PayrollCategories.EditModel
+
+@{
+    ViewData["Title"] = "Edit Payroll Category";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Payroll Category</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PayrollCategory.ID" />
+            <div class="form-group">
+                <label asp-for="PayrollCategory.PayrollCategoryName" class="control-label"></label>
+                <input asp-for="PayrollCategory.PayrollCategoryName" class="form-control" />
+                <span asp-validation-for="PayrollCategory.PayrollCategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PayrollCategory.SchoolID" class="control-label"></label>
+                <select asp-for="PayrollCategory.SchoolID" class="form-select" asp-items="ViewBag.SchoolID">
+                    <option value="">- Select School -</option>
+                </select>
+                <span asp-validation-for="PayrollCategory.SchoolID" class="text-danger"></span>
+            </div>
+            <div class="form-group text-right">
+                <input type="submit" value="Save" class="btn btn-primary createBtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

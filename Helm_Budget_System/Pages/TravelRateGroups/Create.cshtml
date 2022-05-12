@@ -1,0 +1,51 @@
+﻿@page
+@model Helm_Budget_System.Pages.TravelRateGroups.CreateModel
+
+@{
+    ViewData["Title"] = "Create Travel Rate Group";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Create Travel Rate Group</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TravelRateGroup.MealPerDiemRate" class="control-label"></label>
+                <input asp-for="TravelRateGroup.MealPerDiemRate" class="form-control" />
+                <span asp-validation-for="TravelRateGroup.MealPerDiemRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelRateGroup.CoachTravelRate" class="control-label"></label>
+                <input asp-for="TravelRateGroup.CoachTravelRate" class="form-control" />
+                <span asp-validation-for="TravelRateGroup.CoachTravelRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelRateGroup.RecruitTravelRate" class="control-label"></label>
+                <input asp-for="TravelRateGroup.RecruitTravelRate" class="form-control" />
+                <span asp-validation-for="TravelRateGroup.RecruitTravelRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelRateGroup.SchoolID" class="control-label"></label>
+                <select asp-for="TravelRateGroup.SchoolID" class="form-select" asp-items="ViewBag.SchoolID">
+                    <option value="">- Select School -</option>
+                </select>
+                <span asp-validation-for="TravelRateGroup.SchoolID" class="text-danger"></span>
+            </div>
+            <div class="form-group text-right">
+                <input type="submit" value="Create" class="btn btn-primary createBtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

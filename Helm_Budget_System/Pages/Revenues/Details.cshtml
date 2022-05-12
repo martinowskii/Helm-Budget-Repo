@@ -1,0 +1,79 @@
+﻿@page
+@model Helm_Budget_System.Pages.Revenues.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Revenue Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue.RevenueDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Revenue.RevenueDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue.RevenueComment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Revenue.RevenueComment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue.RevenueQuantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Revenue.RevenueQuantity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue.RevenueRate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Revenue.RevenueRate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue.OtherRevenue)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Revenue.OtherRevenue)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue.BudgetSector)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Revenue.BudgetSector.BudgetSectorName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue.RevenueCategory)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Revenue.RevenueCategory.RevenueCategoryName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue.DescriptorDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Revenue.DescriptorDescription.DescriptorDescriptionName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue.School)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Revenue.School.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Revenue.Year.ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Revenue.ID">Edit</a> |
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>

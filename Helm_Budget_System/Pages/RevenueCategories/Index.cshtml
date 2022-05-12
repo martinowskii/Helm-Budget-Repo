@@ -1,0 +1,127 @@
+﻿@page
+@model Helm_Budget_System.Pages.RevenueCategorys.IndexModel
+
+@{
+    ViewData["Title"] = "Revenue Categories";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2>Revenue Categories</h2>
+    </div>
+    <div class="col-6 text-right">
+        <p class="createBtn">
+            <a asp-page="Create" data-toggle="tooltip" title="New Revenue Category Entry">
+                <span class="fa-solid fa-plus"></span> New Revenue Category Entry
+            </a>
+        </p>
+    </div>
+</div>
+
+<p class="text-success hiddenText">@Model.SuccessMessage</p>
+
+<form sp-page="./Index" method="get">
+    <div class="form-actions searchBox row" data-toggle="tooltip" title="Input search criteria to filter the list.">
+        <div class="col-5">
+            Filter by Name:
+            <input type="text" name="SearchName" class="searchBoxInput" value="@Model.NameFilter" />
+        </div>
+        <div class="col-md-3" data-toggle="tooltip" title="Select a School.">
+            <select asp-for="SchoolFilter" class="filterDropdowns" asp-items="ViewBag.SchoolID" value="@Model.SchoolFilter">
+                <option value="">- Select School -</option>
+            </select>
+        </div>
+        <div class="col-4 text-right searchBtn" style="margin-top:4px;">
+            <input type="submit" value="Search" class="btn btn-primary navBtn" />&nbsp;|&nbsp;
+            <a asp-page="./Index" class="btn btn-secondary navBtn" data-toggle="tooltip" title="Reset search criteria.">X</a>
+        </div>
+    </div>
+</form>
+
+<table class="table" style="margin-top: 7px;">
+    <thead>
+        <tr class="tableHdr">  
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.IDSort"
+                   asp-route-nameFilter="@Model.NameFilter"
+                   asp-route-schoolFilter="@Model.SchoolFilter">
+                    @Html.DisplayNameFor(model => model.RevenueCategory[0].ID)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                   asp-route-nameFilter="@Model.NameFilter"
+                   asp-route-schoolFilter="@Model.SchoolFilter">
+                    @Html.DisplayNameFor(model => model.RevenueCategory[0].RevenueCategoryName)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.SchoolSort"
+                   asp-route-nameFilter="@Model.NameFilter"
+                   asp-route-schoolFilter="@Model.SchoolFilter">
+                    @Html.DisplayNameFor(model => model.RevenueCategory[0].School.SchoolName)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RevenueCategory) {
+        <tr class="tableBody">
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RevenueCategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.School.SchoolName)
+            </td>
+            <td class="btnGroup text-right">
+                <a asp-page="./Edit" asp-route-id="@item.ID" class="fa-solid fa-edit text-left"
+                   data-toggle="tooltip" title="Edit Revenue Category Entry"></a>|
+                <a asp-page="./Details" asp-route-id="@item.ID" class="fa-solid fa-magnifying-glass text-left"
+                   data-toggle="tooltip" title="View Revenue Category Details"></a>|
+                <a asp-page="./Delete" asp-route-id="@item.ID" class="fa-solid fa-multiply text-left"
+                   data-toggle="tooltip" title="Delete Revenue Category Entry"></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+@{
+    var prevDisabled = !Model.RevenueCategory.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.RevenueCategory.HasNextPage ? "disabled" : "";
+}
+
+<div class="form-actions no-color helmFooter row">
+    <div class="col-6 footerDiv text-right" data-toggle="tooltip" title="">
+        <table class="table-condensed footerTable">
+            <tr class="text-right">
+                <th class="ftrTableCol">Total Entries:</th>
+                <td class="text-left">@String.Format("{0:N0}", @Model.entryCount)</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-6 footerDiv ftrNavBtnSet text-right" data-toggle="tooltip" title="Select Previous or Next to see more entries.">
+        <a asp-page="./Index"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-pageIndex="@(Model.RevenueCategory.PageIndex - 1)"
+            asp-route-nameFilter="@Model.NameFilter"
+            asp-route-schoolFilter="@Model.SchoolFilter"
+            class="btn btn-primary navBtn @prevDisabled">
+            Previous
+        </a>
+        <a asp-page="./Index"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-pageIndex="@(Model.RevenueCategory.PageIndex + 1)"
+            asp-route-nameFilter="@Model.NameFilter"
+            asp-route-schoolFilter="@Model.SchoolFilter"
+            class="btn btn-primary navBtn @nextDisabled">
+            Next
+        </a>
+    </div>
+</div>

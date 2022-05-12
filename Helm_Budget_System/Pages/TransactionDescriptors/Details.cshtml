@@ -1,0 +1,31 @@
+﻿@page
+@model Helm_Budget_System.Pages.TransactionDescriptors.DetailsModel
+
+@{
+    ViewData["Title"] = "Transaction Descriptor Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Transaction Descriptor Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransactionDescriptor.TransactionDescriptorName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransactionDescriptor.TransactionDescriptorName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransactionDescriptor.School.SchoolName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransactionDescriptor.School.SchoolName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TransactionDescriptor.ID"><i class="fa-solid fa-edit"></i>&nbsp;Edit</a> |
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>

@@ -1,0 +1,70 @@
+﻿@page
+@model Helm_Budget_System.Pages.Travels.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit Travel Entry</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TravelEntry.ID" />
+            <div class="form-group">
+                <label asp-for="TravelEntry.BudgetSector.BudgetSectorName" class="control-label"></label>
+                <input asp-for="TravelEntry.BudgetSector.BudgetSectorName" class="form-control" />
+                <span asp-validation-for="TravelEntry.BudgetSector.BudgetSectorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelEntry.Year.YearEntry" class="control-label"></label>
+                <input asp-for="TravelEntry.Year.YearEntry" class="form-control" />
+                <span asp-validation-for="TravelEntry.Year.YearEntry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelEntry.TravelCategory.Description" class="control-label"></label>
+                <input asp-for="TravelEntry.TravelCategory.Description" class="form-control" />
+                <span asp-validation-for="TravelEntry.TravelCategory.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelEntry.TravelStartDate" class="control-label"></label>
+                <input asp-for="TravelEntry.TravelStartDate" class="form-control" />
+                <span asp-validation-for="TravelEntry.TravelStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelEntry.TravelEndDate" class="control-label"></label>
+                <input asp-for="TravelEntry.TravelEndDate" class="form-control" />
+                <span asp-validation-for="TravelEntry.TravelEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TravelEntry.InState" /> @Html.DisplayNameFor(model => model.TravelEntry.InState)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TravelEntry.IsConference" /> @Html.DisplayNameFor(model => model.TravelEntry.IsConference)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelEntry.EventDescription" class="control-label"></label>
+                <input asp-for="TravelEntry.EventDescription" class="form-control" />
+                <span asp-validation-for="TravelEntry.EventDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

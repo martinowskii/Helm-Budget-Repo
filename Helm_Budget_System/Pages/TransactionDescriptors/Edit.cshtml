@@ -1,0 +1,42 @@
+﻿@page
+@model Helm_Budget_System.Pages.TransactionDescriptors.EditModel
+
+@{
+    ViewData["Title"] = "Edit Transaction Descriptor";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Transaction Descriptor</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TransactionDescriptor.ID" />
+            <div class="form-group">
+                <label asp-for="TransactionDescriptor.TransactionDescriptorName" class="control-label"></label>
+                <input asp-for="TransactionDescriptor.TransactionDescriptorName" class="form-control" />
+                <span asp-validation-for="TransactionDescriptor.TransactionDescriptorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionDescriptor.SchoolID" class="control-label"></label>
+                <select asp-for="TransactionDescriptor.SchoolID" class="form-select" asp-items="ViewBag.SchoolID">
+                    <option value="">- Select School -</option>
+                </select>
+                <span asp-validation-for="TransactionDescriptor.SchoolID" class="text-danger"></span>
+            </div>
+            <div class="form-group text-right">
+                <input type="submit" value="Save" class="btn btn-primary createBtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

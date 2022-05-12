@@ -1,0 +1,74 @@
+﻿@page
+@model Helm_Budget_System.Pages.Revenues.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Create Revenue</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Revenue.RevenueDescription" class="control-label"></label>
+                <input asp-for="Revenue.RevenueDescription" class="form-control" />
+                <span asp-validation-for="Revenue.RevenueDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Revenue.RevenueComment" class="control-label"></label>
+                <input asp-for="Revenue.RevenueComment" class="form-control" />
+                <span asp-validation-for="Revenue.RevenueComment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Revenue.RevenueQuantity" class="control-label"></label>
+                <input asp-for="Revenue.RevenueQuantity" class="form-control" />
+                <span asp-validation-for="Revenue.RevenueQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Revenue.RevenueRate" class="control-label"></label>
+                <input asp-for="Revenue.RevenueRate" class="form-control" />
+                <span asp-validation-for="Revenue.RevenueRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Revenue.OtherRevenue" class="control-label"></label>
+                <input asp-for="Revenue.OtherRevenue" class="form-control" />
+                <span asp-validation-for="Revenue.OtherRevenue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Revenue.BudgetSectorID" class="control-label"></label>
+                <select asp-for="Revenue.BudgetSectorID" class ="form-control" asp-items="ViewBag.BudgetSectorID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Revenue.RevenueCategoryID" class="control-label"></label>
+                <select asp-for="Revenue.RevenueCategoryID" class ="form-control" asp-items="ViewBag.RevenueCategoryID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Revenue.DescriptorDescriptionID" class="control-label"></label>
+                <select asp-for="Revenue.DescriptorDescriptionID" class ="form-control" asp-items="ViewBag.DescriptorDescriptionID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Revenue.SchoolID" class="control-label"></label>
+                <select asp-for="Revenue.SchoolID" class ="form-control" asp-items="ViewBag.SchoolID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Revenue.YearID" class="control-label"></label>
+                <select asp-for="Revenue.YearID" class ="form-control" asp-items="ViewBag.YearID"></select>
+            </div>
+            <div class="form-group text-right">
+                <input type="submit" value="Create" class="btn btn-primary createBtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"><i class="fa-solid fa-backward"></i>&nbsp;Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
